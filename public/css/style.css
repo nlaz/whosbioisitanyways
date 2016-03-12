@@ -1,0 +1,12 @@
+/*
+* Whose Bio Is It Anyway? - Style File
+* http://bit.ly/1ywfhq7
+*/
+
+/* Open Sans Google Font */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600,700);
+
+* {
+  font-family: 'Open Sans';
+  font-weight: 600;
+}
