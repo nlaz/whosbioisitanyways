@@ -32,7 +32,7 @@ end
 # Routes
 
 get '/' do
-  'Hello user!'
+  erb :index
 end
 
 get '/auth/twitter/callback' do
@@ -41,9 +41,9 @@ get '/auth/twitter/callback' do
 end
 
 get '/auth/failure' do
-  # Create Failure Page
+  # TODO: Create Failure Page
 end
 
 get '/auth/login' do
-  "<a href='/auth/twitter'>Login with Twitter</a>"
+  erb :login
 end
