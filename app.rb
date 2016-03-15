@@ -26,13 +26,24 @@ helpers do
     !session[:uid].nil?
   end
 
-  def client
+  def twitter_client
     client ||= Twitter::REST::Client.new do |config|
       config.consumer_key        = ENV['TWITTER_CONSUMER_KEY']
       config.consumer_secret     = ENV['TWITTER_CONSUMER_SECRET']
       config.access_token        = session[:token]
       config.access_token_secret = session[:secret]
     end
+  end
+
+  def fetch_all_friends
+    slice_size = 100
+    friends = []
+    twitter_client.friend_ids.each_slice(slice_size).with_index do |slice, i|
+      twitter_client.users(slice).each do |friend|
+        friends << friend
+      end
+    end
+    friends
   end
 end
 
@@ -44,7 +55,8 @@ end
 # Routes
 
 get '/' do
-  screen_names = client.friends.collect {|f| p client.user(f).screen_name }
+  friends = fetch_all_friends
+  p friends
 
   erb :index
 end
