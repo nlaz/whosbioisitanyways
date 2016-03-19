@@ -77,7 +77,7 @@ class WhoseBioApp < Sinatra::Base
     if match_user(answer)
       $friend.attrs.to_json
     else
-      halt 200
+      status 422
     end
   end
 
