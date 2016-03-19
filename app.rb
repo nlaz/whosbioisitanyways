@@ -30,7 +30,6 @@ class WhoseBioApp < Sinatra::Base
 
     def twitter_client
       $client ||= Twitter::REST::Client.new do |config|
-        p "CREATING NEW CLIENT"
         config.consumer_key        = ENV['TWITTER_CONSUMER_KEY']
         config.consumer_secret     = ENV['TWITTER_CONSUMER_SECRET']
         config.access_token        = session[:token]
@@ -47,7 +46,6 @@ class WhoseBioApp < Sinatra::Base
       friends = []
       twitter_client.friend_ids.each_slice(slice_size).with_index do |slice, i|
         twitter_client.users(slice).each do |friend|
-          p "SHOULDNT BE HERE EVERY TIME!"
           friends << friend
         end
       end
@@ -63,8 +61,7 @@ class WhoseBioApp < Sinatra::Base
   # Routes
 
   get '/' do
-    friends = friends_list
-    p friends.sample
+    @friend = friends_list.sample
 
     erb :index
   end
