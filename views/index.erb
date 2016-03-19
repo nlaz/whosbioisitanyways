@@ -13,12 +13,12 @@
     <div class="text-center">
       <h1>Whose bio is it anyway?</h1>
       <img id="profile"/>
-      <h2 id="bio"><%= @friend.description %></h2>
-      <input id="input" type="text" placeholder="Search by name or handle...">
+      <h2 id="bio"><%= $friend.description %></h2>
+      <input id="input" type="text" name="answer" placeholder="Search by name or handle...">
     </div>
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
+  <script src="js/bio.js"></script>
 </body>
 </html>

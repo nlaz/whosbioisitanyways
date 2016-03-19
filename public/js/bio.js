@@ -1,8 +1,13 @@
 $("#input").keyup(function (e) {
   if (e.keyCode == 13) {
-    $.post("user", { answer: $("input").value },
-      function(result) { 
+    var answer = $("#input").val();
 
+    $.post(
+      "/user", 
+      { answer: answer },
+      function(result) { 
+        console.log(result);
     });
+    e.preventDefault();
   }
 });

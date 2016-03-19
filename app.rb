@@ -61,12 +61,18 @@ class WhoseBioApp < Sinatra::Base
   # Routes
 
   get '/' do
-    @friend = friends_list.sample
-
+    $friend = friends_list.sample
     erb :index
   end
 
-  get '/user' do
+  post '/user' do
+    answer = params[:answer]
+
+    if $friend.attrs[:name] == answer
+      $friend.attrs.to_json
+    else
+      halt 200
+    end
   end
 
   get '/auth/twitter/callback' do
