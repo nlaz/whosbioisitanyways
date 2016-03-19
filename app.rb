@@ -66,6 +66,9 @@ class WhoseBioApp < Sinatra::Base
     erb :index
   end
 
+  get '/user' do
+  end
+
   get '/auth/twitter/callback' do
     session[:uid]    = env['omniauth.auth']['uid']
     session[:token]  = env['omniauth.auth']['extra']['access_token'].token
