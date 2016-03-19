@@ -37,6 +37,10 @@ class WhoseBioApp < Sinatra::Base
       end
     end
 
+    def match_user(answer)
+      answer == $friend.attrs[:name] || answer == $friend.attrs[:screen_name]
+    end
+
     def friends_list
       $friends ||= fetch_all_friends
     end
@@ -62,13 +66,15 @@ class WhoseBioApp < Sinatra::Base
 
   get '/' do
     $friend = friends_list.sample
+    p $friend.attrs
     erb :index
   end
 
   post '/user' do
+    p params
     answer = params[:answer]
 
-    if $friend.attrs[:name] == answer
+    if match_user(answer)
       $friend.attrs.to_json
     else
       halt 200

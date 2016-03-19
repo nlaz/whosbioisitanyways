@@ -6,7 +6,10 @@ $("#input").keyup(function (e) {
       "/user", 
       { answer: answer },
       function(result) { 
+        var user = JSON.parse(result);
         console.log(result);
+        console.log(user);
+        $("#profile").attr("src", user.profile_image_url.replace("_normal", ""));
     });
     e.preventDefault();
   }
