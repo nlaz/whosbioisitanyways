@@ -11,6 +11,7 @@ body {
   display: table-cell;
   height: 100vh;
   vertical-align: middle;
+  width: 100vw;
 }
 
 .content {
