@@ -70,15 +70,8 @@ class WhoseBioApp < Sinatra::Base
     erb :index
   end
 
-  post '/user' do
-    p params
-    answer = params[:answer]
-
-    if match_user(answer)
-      $friend.attrs.to_json
-    else
-      status 422
-    end
+  get '/friend.json' do
+    $friend.attrs.to_json
   end
 
   get '/auth/twitter/callback' do
