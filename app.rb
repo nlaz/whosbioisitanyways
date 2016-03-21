@@ -4,7 +4,6 @@ require 'httparty'
 require 'json'
 require 'twitter'
 require 'pry'
-require 'tilt/erubis'
 
 require 'dotenv'
 Dotenv.load
