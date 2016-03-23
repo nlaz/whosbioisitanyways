@@ -9,7 +9,7 @@ These are the steps to get the app up and running:
 Make a local copy of this project and move into the directory. This project requires Ruby and RubyGems.
 ```
   $ git clone https://github.com/nlaz/whosebioisitanyway.git
-  $ cd starbot
+  $ cd whosebioisitanyway
 ```
 
 ### Step 2. Connect your twitter app
