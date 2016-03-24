@@ -35,14 +35,27 @@ body {
   font-weight: 400;
   padding: 15px 20px;
   text-decoration: none;
+  transition: all .2s linear;
+}
+
+.content a.login:hover {
+  background: #4491CB;
 }
 
 .content img#profile {
   background-color: #ccd6dd;
-  border: 2px solid #fff;
+  border: 3px solid #fff;
   border-radius: 4px;
   height: 88px;
   width: 88px;
+  position: relative;
+}
+
+.content img#profile::before {
+  top: 0;
+  position: absolute;
+  left: 0;
+  content: "?";
 }
 
 .content h2#bio {
