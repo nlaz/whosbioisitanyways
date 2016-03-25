@@ -28,7 +28,7 @@ class WhoseBioApp < Sinatra::Base
     end
 
     def twitter_client
-      $client ||= Twitter::REST::Client.new do |config|
+      client ||= Twitter::REST::Client.new do |config|
         config.consumer_key        = ENV['TWITTER_CONSUMER_KEY']
         config.consumer_secret     = ENV['TWITTER_CONSUMER_SECRET']
         config.access_token        = session[:token]
@@ -37,11 +37,11 @@ class WhoseBioApp < Sinatra::Base
     end
 
     def match_user(answer)
-      answer == $friend.attrs[:name] || answer == $friend.attrs[:screen_name]
+      answer == friends_list.attrs[:name] || answer == friends_list.attrs[:screen_name]
     end
 
     def friends_list
-      $friends ||= fetch_all_friends
+      friends ||= fetch_all_friends
     end
 
     def fetch_all_friends
