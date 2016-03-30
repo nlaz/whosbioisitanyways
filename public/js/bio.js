@@ -29,7 +29,17 @@ function failure(friend) {
 
 function revealReset(friend) {
   $("#profile").attr("src", friend.profile_image_url.replace("_normal", ""));
+  resetForm(3000);
+}
+
+function resetForm(time) {
+  $("#countdown").text(time/1000);
+  var timeLeft = time - 1000;
   setTimeout(function () { 
-    location.reload();
-  }, 2000);
+    if (time <= 0){
+      location.reload();
+    } else {
+      resetForm(timeLeft);
+    }
+  }, 1000);
 }

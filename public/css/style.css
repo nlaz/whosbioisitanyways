@@ -14,6 +14,15 @@ body {
   width: 100vw;
 }
 
+#countdown {
+  color: #292f33;
+  font-family: 'Open Sans';
+  font-size: 26px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
 .content {
   font-family: 'Open Sans';
   font-weight: 600;
