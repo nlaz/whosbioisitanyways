@@ -49,7 +49,9 @@ class WhoseBioApp < Sinatra::Base
       friends = []
       twitter_client.friend_ids.each_slice(slice_size).with_index do |slice, i|
         twitter_client.users(slice).each do |friend|
-          friends << friend
+          if friend.description
+            friends << friend
+          end
         end
       end
       friends
