@@ -26,6 +26,7 @@ body {
 .content {
   font-family: 'Open Sans';
   font-weight: 600;
+  text-align: center;
 }
 
 .content h1 {
