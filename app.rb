@@ -36,10 +36,6 @@ class WhoseBioApp < Sinatra::Base
       end
     end
 
-    def match_user(answer)
-      answer == friends_list.attrs[:name] || answer == friends_list.attrs[:screen_name]
-    end
-
     def friends_list
       friends ||= fetch_all_friends
     end
@@ -72,6 +68,11 @@ class WhoseBioApp < Sinatra::Base
   end
 
   get '/friend.json' do
+    $friend.attrs.to_json
+  end
+
+  get '/new_user.json' do
+    $friend = friends_list.sample
     $friend.attrs.to_json
   end
 

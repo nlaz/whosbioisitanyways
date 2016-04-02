@@ -1,5 +1,7 @@
 var inputForm = document.getElementById("input");
 
+fetch_user();
+
 inputForm.onkeyup = function(e) {
   e = e || window.event;
 
@@ -25,6 +27,22 @@ inputForm.onkeyup = function(e) {
     e.preventDefault();
   }
 };
+
+function fetch_user() {
+  var request = new XMLHttpRequest();
+  request.open('GET', '/new_user.json', true);
+
+  request.onload = function() {
+    if (request.status >= 200 && request.status < 400) {
+      var user = JSON.parse(request.responseText);
+      console.log(user);
+      var bio = document.getElementById("bio");
+      bio.innerHTML = user.description;
+    }
+  };
+
+  request.send();
+}
 
 function success(friend) {
   var title = document.getElementById("title");
