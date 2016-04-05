@@ -61,10 +61,13 @@ function revealReset(friend) {
   resetForm(3000);
 }
 
+var timer;
+
 function resetForm(time) {
   document.getElementById("countdown").innerHTML = time/1000;
   var timeLeft = time - 1000;
-  setTimeout(function () { 
+  clearTimeout(timer);
+  timer = setTimeout(function () { 
     if (time <= 0){
       location.reload();
     } else {
