@@ -28,7 +28,7 @@ class WhoseBioApp < Sinatra::Base
     end
 
     def twitter_client
-      client ||= Twitter::REST::Client.new do |config|
+      @client ||= Twitter::REST::Client.new do |config|
         config.consumer_key        = ENV['TWITTER_CONSUMER_KEY']
         config.consumer_secret     = ENV['TWITTER_CONSUMER_SECRET']
         config.access_token        = session[:token]
@@ -37,7 +37,7 @@ class WhoseBioApp < Sinatra::Base
     end
 
     def friends_list
-      friends ||= fetch_all_friends
+      @friends_list ||= fetch_all_friends
     end
 
     def fetch_all_friends
@@ -62,8 +62,6 @@ class WhoseBioApp < Sinatra::Base
   # Routes
 
   get '/' do
-    $friend = friends_list.sample
-    p $friend.attrs
     erb :index
   end
 
