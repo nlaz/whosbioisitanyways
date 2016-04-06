@@ -69,7 +69,11 @@ function resetForm(time) {
   clearTimeout(timer);
   timer = setTimeout(function () { 
     if (time <= 0){
-      location.reload();
+      document.getElementById("profile").src = "img/placeholder.png";
+      document.getElementById("title").innerHTML = "Whose bio is it anyway?";
+      document.getElementById("title").style.color = "#000";
+      document.getElementById("input").value = "";
+      fetch_user();
     } else {
       resetForm(timeLeft);
     }
