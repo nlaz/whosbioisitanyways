@@ -69,6 +69,14 @@ class WhoseBioApp < Sinatra::Base
     $friend.attrs.to_json
   end
 
+  get '/friends.json' do
+    friends = []
+    friends_list.each do |friend|
+      friends << friend.name
+    end
+    friends
+  end
+
   get '/new_user.json' do
     $friend = friends_list.sample
     $friend.attrs.to_json

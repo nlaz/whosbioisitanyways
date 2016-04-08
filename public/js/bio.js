@@ -79,3 +79,19 @@ function resetForm(time) {
     }
   }, 1000);
 }
+
+var engine = new Bloodhound({
+  datumTokenizer: Bloodhound.tokenizers.whitespace,
+  queryTokenizer: Bloodhound.tokenizers.whitespace,
+  prefetch: '/friends.json'
+});
+
+$('.typeahead').typeahead({
+  hint: true,
+  highlight: true,
+  minLength: 1
+},
+{
+  name: 'friends',
+  source: engine
+});
