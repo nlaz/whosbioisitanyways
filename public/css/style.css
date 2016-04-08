@@ -8,9 +8,7 @@
 
 body {
   background-color: #CEF8F0;
-  display: table-cell;
   height: 100vh;
-  vertical-align: middle;
   width: 100vw;
 }
 
@@ -26,12 +24,13 @@ body {
 .content {
   font-family: 'Open Sans';
   font-weight: 600;
+  margin-top: 120px;
   text-align: center;
 }
 
 .content .title {
   color: #292f33;
-  font-size: 32px;
+  font-size: 36px;
   font-weight: 600;
   line-height: 38px;
   margin: 0;
