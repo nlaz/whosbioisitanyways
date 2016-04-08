@@ -29,7 +29,7 @@ body {
   text-align: center;
 }
 
-.content h1 {
+.content .title {
   color: #292f33;
   font-size: 32px;
   font-weight: 600;
@@ -37,7 +37,7 @@ body {
   margin: 0;
 }
 
-.content h2 {
+.content .subtitle {
   color: #1A5F86;
   font-weight: 400;
   margin: 0;
@@ -56,7 +56,7 @@ body {
   border-radius: 6px;
   margin-left: auto;
   margin-right: auto;
-  padding: 20px;
+  padding: 50px;
   width: 500px;
 }
 
@@ -77,38 +77,57 @@ body {
 
 .content img#profile {
   background-color: #ccd6dd;
-  border: 3px solid #fff;
+  border: 3px solid #1F6084;
   border-radius: 4px;
-  height: 88px;
-  width: 88px;
+  float: left;
+  height: 120px;
+  margin-bottom: 60px;
   position: relative;
+  width: 120px;
 }
 
-.content img#profile::before {
-  top: 0;
-  position: absolute;
-  left: 0;
-  content: "?";
-}
-
-.content h2#bio {
-  color: #292f33;
+.content .container h2 {
   font-size: 18px;
+  font-weight: 400;
+  margin: 0;
+  text-align: left;
+}
+
+.content .container .info {
+  width: 350px;
+  float: right;
+}
+
+.content .container #name {
+  color: #252B26;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.content .container #username {
+  font-size: 18px;
+  color: #24658B;
+  margin-bottom: 10px;
+}
+
+.content .container #bio {
+  color: #24658B;
+  font-size: 16px;
   font-weight: 400;
   margin-bottom: 50px;
   margin-left: auto;
   margin-right: auto;
-  width: 350px;
 }
 
 .content input#input {
   background-color: #ffffff;
-  border: solid 1px #55acee;
+  border: solid 2px #1F6084;
   border-radius: 4px;
-  font-size: 20px;
+  box-sizing : border-box;
+  font-size: 18px;
   font-weight: 400;
-  padding: 10px 20px;
-  width: 350px;
+  padding: 15px 20px;
+  width: 100%;
 }
 
 .content input::-webkit-input-placeholder {
